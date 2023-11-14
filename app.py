@@ -27,8 +27,8 @@ client1.on_message = on_message
 
 st.title("MQTT Control")
 
-if st.button('ON'):
-    act1="ON"
+if st.button('ABRE'):
+    act1="ABRE"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
@@ -41,8 +41,8 @@ if st.button('ON'):
 else:
     st.write('')
 
-if st.button('OFF'):
-    act1="OFF"
+if st.button('CIERRA'):
+    act1="CIERRA"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
