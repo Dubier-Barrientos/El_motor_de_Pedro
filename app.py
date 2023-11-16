@@ -33,6 +33,7 @@ client1= paho.Client("ErnestoDoor")
 client1.on_message = on_message
 
 st.write(" !Hola, bienvenido a Eco-House! ")
+st.text(" La casa con sistema de cerradura inteligente ")
 
 stt_button = Button(label=" Open/Close the door ", width=200)
 
@@ -65,7 +66,7 @@ result = streamlit_bokeh_events(
 
 if result:
     if "GET_TEXT" in result:
-        st.write(result.get("GET_TEXT"))
+        #st.write(result.get("GET_TEXT"))
         client1.on_publish = on_publish                            
         client1.connect(broker,port)  
         message =json.dumps({"Act1":result.get("GET_TEXT").strip()})
@@ -101,30 +102,6 @@ if result:
     except:
         pass
 
-
-if st.button("ABRE"):
-    act1="ABRE"
-    client1= paho.Client("ErnestoDoor")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("puerta_de_ernesto", message)
-
-    #client1.subscribe("Sensores")
-else:
-    st.write('')
-
-if st.button("CIERRA"):
-    act1="CIERRA"
-    client1= paho.Client("ErnestoDoor")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("puerta_de_ernesto", message)
-  
-    
-else:
-    st.write('')
 
 
 
