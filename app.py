@@ -114,7 +114,7 @@ if st.button("ABRE"):
 else:
     st.write('')
 
-if if st.button("CIERRA"):
+if st.button("CIERRA"):
     act1="CIERRA"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
