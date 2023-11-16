@@ -100,8 +100,31 @@ if result:
         os.mkdir("temp")
     except:
         pass
-    
 
+
+if st.button("ABRE"):
+    act1="ABRE"
+    client1= paho.Client("ErnestoDoor")                           
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("puerta_de_ernesto", message)
+
+    #client1.subscribe("Sensores")
+else:
+    st.write('')
+
+if if st.button("CIERRA"):
+    act1="CIERRA"
+    client1= paho.Client("ErnestoDoor")                           
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("puerta_de_ernesto", message)
+  
+    
+else:
+    st.write('')
 
 
 
