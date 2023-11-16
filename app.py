@@ -77,7 +77,7 @@ if result:
     except:
         pass
 
-if result.get("GET_TEXT").lower() == "open".lower():
+if result.get("GET_TEXT") == "open":
     act1="ABRE"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
@@ -91,7 +91,7 @@ if result.get("GET_TEXT").lower() == "open".lower():
 else:
     st.write('')
 
-if result.get("GET_TEXT").lower() == "close".lower():
+if result.get("GET_TEXT") == "close":
     act1="CIERRA"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
