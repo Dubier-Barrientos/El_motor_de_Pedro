@@ -71,7 +71,7 @@ if result:
         message =json.dumps({"Act1":result.get("GET_TEXT").strip()})
         ret= client1.publish("voz_pedro", message)
 
-        if result.get("GET_TEXT") == "open":
+        if result.get("GET_TEXT") == "Open":
             act1="ABRE"
             client1= paho.Client("ErnestoDoor")                           
             client1.on_publish = on_publish                          
@@ -83,7 +83,7 @@ if result:
         else:
             st.write('')
 
-        if result.get("GET_TEXT") == "close":
+        if result.get("GET_TEXT") == "Close":
             act1="CIERRA"
             client1= paho.Client("ErnestoDoor")                           
             client1.on_publish = on_publish                          
