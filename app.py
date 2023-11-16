@@ -35,6 +35,10 @@ client1.on_message = on_message
 st.write(" !Hola, bienvenido a Eco-House! ")
 st.text(" La casa con sistema de cerradura inteligente ")
 
+
+image = Image.open('eco-house.jpg')
+st.image(image, width=200)
+
 stt_button = Button(label=" Open/Close the door ", width=200)
 
 stt_button.js_on_event("button_click", CustomJS(code="""
