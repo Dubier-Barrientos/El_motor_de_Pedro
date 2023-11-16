@@ -105,9 +105,6 @@ if st.button('CIERRA'):
 else:
     st.write('')
     
- 
-else:
-    st.write('')
 
 
 
