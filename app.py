@@ -33,7 +33,9 @@ client1= paho.Client("ErnestoDoor")
 client1.on_message = on_message
 
 st.write(" !Hola, bienvenido a Eco-House! ")
-st.title(" !Hola, bienvenido a Eco-House! ", style={"font-weight": "bold", "font-style": "italic", "color": "#228B22"})
+st.markdown("""
+<h1 style="background-color: transparent; color: #228B22; font-weight: bold;"> !Hola, bienvenido a Eco-House! </h1>
+""")
 st.text(" La casa con sistema de cerradura inteligente ")
 
 
