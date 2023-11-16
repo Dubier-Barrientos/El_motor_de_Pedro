@@ -71,37 +71,35 @@ if result:
         message =json.dumps({"Act1":result.get("GET_TEXT").strip()})
         ret= client1.publish("voz_pedro", message)
 
+        if result.get("GET_TEXT") == "open":
+            act1="ABRE"
+            client1= paho.Client("ErnestoDoor")                           
+            client1.on_publish = on_publish                          
+            client1.connect(broker,port)  
+            message =json.dumps({"Act1":act1})
+            ret= client1.publish("puerta_de_ernesto", message)
+ 
+            #client1.subscribe("Sensores")
+        else:
+            st.write('')
+
+        if result.get("GET_TEXT") == "close":
+            act1="CIERRA"
+            client1= paho.Client("ErnestoDoor")                           
+            client1.on_publish = on_publish                          
+            client1.connect(broker,port)  
+            message =json.dumps({"Act1":act1})
+            ret= client1.publish("puerta_de_ernesto", message)
+          
+            
+        else:
+            st.write('')
+
     
     try:
         os.mkdir("temp")
     except:
         pass
-
-if result.get("GET_TEXT") == "open":
-    act1="ABRE"
-    client1= paho.Client("ErnestoDoor")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("puerta_de_ernesto", message)
- 
-    #client1.subscribe("Sensores")
-    
-    
-else:
-    st.write('')
-
-if result.get("GET_TEXT") == "close":
-    act1="CIERRA"
-    client1= paho.Client("ErnestoDoor")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("puerta_de_ernesto", message)
-  
-    
-else:
-    st.write('')
     
 
 
