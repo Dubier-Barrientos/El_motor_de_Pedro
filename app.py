@@ -32,9 +32,9 @@ port=1883
 client1= paho.Client("ErnestoDoor")
 client1.on_message = on_message
 
-st.write("Toca el Botón y habla ")
+st.write(" !Hola, bienvenido a Eco-House! ")
 
-stt_button = Button(label=" Inicio ", width=200)
+stt_button = Button(label=" Open/Close the door ", width=200)
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
@@ -77,9 +77,7 @@ if result:
     except:
         pass
 
-st.title("MQTT Control")
-
-if st.button('ABRE'):
+if result.get == "open":
     act1="ABRE"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
@@ -93,7 +91,7 @@ if st.button('ABRE'):
 else:
     st.write('')
 
-if st.button('CIERRA'):
+if result.get == "close":
     act1="CIERRA"
     client1= paho.Client("ErnestoDoor")                           
     client1.on_publish = on_publish                          
